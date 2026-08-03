@@ -17,6 +17,26 @@ navLinks.forEach(link => {
 const navbar = document.querySelector('.navbar');
 let lastScroll = 0;
 
+const projectImageMap = {
+  'Food Landing Page': 'Pictures/Food Landing Page/Screenshot 2026-08-03 221011.png',
+  'Clock & Countdown Timer': 'Pictures/Clock & Countdown Timer/Screenshot 2026-08-03 221128.png',
+  'Brand': 'Pictures/Brand/Screenshot 2026-08-03 220319.png',
+  'LUXE & CO': 'Pictures/LUXE & CO/Screenshot 2026-08-03 224239.png',
+  'KNEO': 'Pictures/KNEO/Screenshot 2026-08-03 224639.png',
+  'Portfolio Website': 'Pictures/Portfolio Website/Screenshot 2026-08-03 222830.png',
+  'Foodi Hub Web': 'Pictures/Foodi Hub Web/Screenshot 2026-08-03 220916.png'
+};
+
+document.querySelectorAll('.project-card').forEach(card => {
+  const title = card.querySelector('.project-info h3')?.textContent.trim();
+  const image = card.querySelector('.project-image img');
+
+  if (title && image && projectImageMap[title]) {
+    image.src = projectImageMap[title];
+    image.alt = `${title} screenshot`;
+  }
+});
+
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
 
